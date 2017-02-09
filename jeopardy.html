@@ -1,0 +1,125 @@
+<html>
+<head>
+	<title>Jeopardy</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+
+		String activeForm = "mc";
+		function showForm(form) {
+			if(form == "mc")
+			{
+				document.getElementById("multipleChoice").style.display = "block";
+				document.getElementById("trueFalse").style.display = "none";
+				document.getElementById("shortAnswer").style.display = "none";
+			}
+			else if(form == "tf")
+			{
+				document.getElementById("multipleChoice").style.display = "none";
+				document.getElementById("trueFalse").style.display = "block";
+				document.getElementById("shortAnswer").style.display = "none";
+			}
+			else {
+				document.getElementById("multipleChoice").style.display = "none";
+				document.getElementById("trueFalse").style.display = "none";
+				document.getElementById("shortAnswer").style.display = "block";
+			}
+
+			activeForm = form;
+			
+		}
+
+		function resetForm() {
+			alert("hi");
+			if(activeForm == "mc")
+			{
+				document.getElementById("multipleChoice").reset();
+			}
+			else if(activeForm == "tf")
+			{
+				document.getElementById("trueFalse").reset();
+			}
+			else {
+				document.getElementById("shortAnswer").reset();
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<h1 id="header1"> Choose a Question Type </h1>
+	<p>Choose the type of question you'd like to create:
+		<br>
+		<br>
+		<select id="dropdown1" onchange="showForm(this.value);"> 
+			<option value="mc">Multiple Choice</option> 
+			<option value="tf">True/False</option> 
+			<option value="sa">Short Answer</option> 
+		</select> <br>
+		<br>
+
+	<div id="multipleChoice">
+	<form name="multipleChoice" style="display: block;" action="http://localhost/cs4640/simple-form-handler.php" method="post" onSubmit="return ()" >
+		Enter a Multiple Choice Question:
+		<table cellspacing="10">
+			<tbody><tr>
+				<td><label>Question:</label></td>
+				<td><textarea name="multipleChoiceQuestion" id="multipleChoiceQuestion" value="" rows="2" style="width: 200%;"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>A:</label></td>
+				<td><textarea name="aAnswer" id="aAnswer" value="" rows="1" style="width: 250%;"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>B:</label></td>
+				<td><textarea name="bAnswer" id="bAnswer" value="" rows="1" style="width: 250%;"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>C:</label></td>
+				<td><textarea name="cAnswer" id="cAnswer" value="" rows="1" style="width: 250%;"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>D:</label></td>
+				<td><textarea name="dAnswer" id="dAnswer" value="" rows="1" style="width: 250%;"></textarea></td>
+			</tr>
+		</tbody></table>
+	</form>
+	</div>
+
+	<form name="trueFalse" id="trueFalse" style="display: none;">
+		Enter a True/False Question:
+		<table cellspacing="10">
+			<tbody><tr>
+				<td><label>Question:</label></td>
+				<td><textarea name="trueFalseQuestion" id="trueFalseQuestion" value="" rows="2" style="width: 200%;"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>True Answer:</label></td>
+				<td><textarea name="trueAnswer" id="trueAnswer" value="" rows="1" style="width: 250%;"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>false Answer:</label></td>
+				<td><textarea name="falseAnswer" id="falseAnswer" value="" rows="1" style="width: 250%;"></textarea></td>
+			</tr>
+		</tbody></table>
+	</form>
+
+	<form name="shortAnswer" id="shortAnswer" style="display: none;">
+		Enter a Short Answer Question:
+		<table cellspacing="10">
+			<tbody><tr>
+				<td><label>Question:</label></td>
+				<td><textarea name="shortAnswerQuestion" id="shortAnswerQuestion" value="" rows="2" style="width: 200%;"></textarea></td>
+			</tr>
+			<tr>
+				<td><label>Answer:</label></td>
+				<td><textarea name="shortAnswerAnswer" id="shortAnswerAnswer" value="" rows="4" style="width: 250%;"></textarea></td>
+			</tr>
+		</tbody></table>
+	</form>
+
+	<button id="submitButton" type="button">Submit</button>
+	<button id="clearButton" type="button" onclick="resetForm()">Clear</button>
+
+	</p>
+	</body>
