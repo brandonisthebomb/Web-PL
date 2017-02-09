@@ -29,6 +29,21 @@
 			
 		}
 
+		function submitForm() {
+			alert("hi");
+			if(activeForm == "mc")
+			{
+				document.getElementById("multipleChoice").submit();
+			}
+			else if(activeForm == "tf")
+			{
+				document.getElementById("trueFalse").submit();
+			}
+			else {
+				document.getElementById("shortAnswer").submit();
+			}
+		}
+
 		function resetForm() {
 			alert("hi");
 			if(activeForm == "mc")
@@ -59,7 +74,7 @@
 		<br>
 
 	<div id="multipleChoice">
-	<form name="multipleChoice" style="display: block;" action="http://localhost/cs4640/simple-form-handler.php" method="post" onSubmit="return ()" >
+	<form name="multipleChoice" style="display: block;" method="post" action="formHandler.php" onSubmit="return ()" >
 		Enter a Multiple Choice Question:
 		<table cellspacing="10">
 			<tbody><tr>
@@ -86,7 +101,7 @@
 	</form>
 	</div>
 
-	<form name="trueFalse" id="trueFalse" style="display: none;">
+	<form name="trueFalse" id="trueFalse" style="display: none;" method="post" action="formHandler.php">
 		Enter a True/False Question:
 		<table cellspacing="10">
 			<tbody><tr>
@@ -104,7 +119,7 @@
 		</tbody></table>
 	</form>
 
-	<form name="shortAnswer" id="shortAnswer" style="display: none;">
+	<form name="shortAnswer" id="shortAnswer" style="display: none;" method="post" action="formHandler.php">
 		Enter a Short Answer Question:
 		<table cellspacing="10">
 			<tbody><tr>
@@ -118,8 +133,8 @@
 		</tbody></table>
 	</form>
 
-	<button id="submitButton" type="button">Submit</button>
-	<button id="clearButton" type="button" onclick="resetForm()">Clear</button>
+	<button id="submitButton" type="button" onclick="submitForm();">Submit</button>
+	<button id="clearButton" type="button" onclick="resetForm();">Clear</button>
 
 	</p>
 	</body>
