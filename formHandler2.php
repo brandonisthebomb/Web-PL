@@ -14,26 +14,16 @@
       <td align="center"><strong>Parameter</strong></td>
       <td align="center"><string>Value</string></td>
     </tr>
+
     <tr>
-      <td width="20%">Question</td> 
-      <td><?php echo $_POST['multipleChoiceQuestion']?></td>      
+      <td width="20%">Short Answer Question</td> 
+      <td><?php echo $_POST['shortAnswerQuestion']?></td>      
     </tr>
     <tr>
-      <td width="20%">Answer A</td> 
-      <td><?php echo $_POST['aAnswer']?></td>      
+      <td width="20%">Short Answer Answer</td> 
+      <td><?php echo $_POST['shortAnswerAnswer']?></td>      
     </tr>
-    <tr>
-      <td width="20%">Answer B</td> 
-      <td><?php echo $_POST['bAnswer']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">Answer C</td> 
-      <td><?php echo $_POST['cAnswer']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">Answer D</td> 
-      <td><?php echo $_POST['dAnswer']?></td>      
-    </tr>
+
 
   </table>
 
