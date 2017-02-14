@@ -5,63 +5,82 @@
 
 	<script type="text/javascript">
 
-	var activeForm = "mc";
-	function showForm(form) {
-		if(form == "mc")
-		{
-			document.getElementById("multipleChoice").style.display = "block";
-			document.getElementById("trueFalse").style.display = "none";
-			document.getElementById("shortAnswer").style.display = "none";
-		}
-		else if(form == "tf")
-		{
-			document.getElementById("multipleChoice").style.display = "none";
-			document.getElementById("trueFalse").style.display = "block";
-			document.getElementById("shortAnswer").style.display = "none";
-		}
-		else {
-			document.getElementById("multipleChoice").style.display = "none";
-			document.getElementById("trueFalse").style.display = "none";
-			document.getElementById("shortAnswer").style.display = "block";
+		var activeForm = "mc";
+		function showForm(form) {
+			if(form == "mc")
+			{
+				document.getElementById("multipleChoice").style.display = "block";
+				document.getElementById("trueFalse").style.display = "none";
+				document.getElementById("shortAnswer").style.display = "none";
+			}
+			else if(form == "tf")
+			{
+				document.getElementById("multipleChoice").style.display = "none";
+				document.getElementById("trueFalse").style.display = "block";
+				document.getElementById("shortAnswer").style.display = "none";
+			}
+			else {
+				document.getElementById("multipleChoice").style.display = "none";
+				document.getElementById("trueFalse").style.display = "none";
+				document.getElementById("shortAnswer").style.display = "block";
+			}
+
+			activeForm = form;
+
 		}
 
-		activeForm = form;
+		function submitForm() {
+			if(activeForm == "mc") 
+			{
+				if(document.getElementById("multipleChoiceQuestion").value != "" && 
+					document.getElementById("aAnswer").value != "" && 
+					document.getElementById("bAnswer").value != "" && 
+					document.getElementById("cAnswer").value != "" && 
+					document.getElementById("dAnswer").value != "") 
+				{
+					document.getElementById("multipleChoice2").submit();
+				}
+				else {
+					alert("Please fill out every field")
+				}
+			}
+			else if(activeForm == "tf") 
+			{
+				if(document.getElementById("trueFalseQuestion").value != '' && 
+					document.getElementById("falseAnswer").value != '' && 
+					document.getElementById("trueAnswer").value != '') 
+				{
+					document.getElementById("trueFalse").submit();
+				}
+				else {
+					alert("Please fill out every field")
+				}
+			}
+			else {
+				if(document.getElementById("shortAnswerQuestion").value != '' && 
+					document.getElementById("shortAnswerAnswer").value != '') 
+				{
+					document.getElementById("shortAnswer").submit();
+				}
+				else {
+					alert("Please fill out every field")
+				}
+			}
+		}
 
-	}
-
-	function submitForm() {
-		if(activeForm == "mc")
-		{
-			if(document.getElementById("multipleChoiceQuestion").value != '' && document.getElementById("aAnswer").value != '' && document.getElementById("aAnswer").value != '' && document.getElementById("aAnswer").value != '' && document.getElementById("aAnswer").value != '')
-				alert("submit");
-				// document.getElementById("multipleChoice").submit();
+		function resetForm() {
+			if(activeForm == "mc")
+			{
+				document.getElementById("multipleChoice2").reset();
+			}
+			else if(activeForm == "tf")
+			{
+				document.getElementById("trueFalse").reset();
+			}
+			else {
+				document.getElementById("shortAnswer").reset();
+			}
 		}
-		else if(activeForm == "tf")
-		{
-			if(document.getElementById("trueFalseQuestion").value != '' && document.getElementById("falseAnswer").value != '' && document.getElementById("trueAnswer").value != '')
-				alert("submit");
-			// document.getElementById("trueFalse").submit();
-		}
-		else {
-			if(document.getElementById("shortAnswerQuestion").value != '' && document.getElementById("shortAnswerAnswer").value != '')
-				alert("submit");
-			// document.getElementById("shortAnswer").submit();
-		}
-	}
-
-	function resetForm() {
-		if(activeForm == "mc")
-		{
-			document.getElementById("multipleChoice2").reset();
-		}
-		else if(activeForm == "tf")
-		{
-			document.getElementById("trueFalse").reset();
-		}
-		else {
-			document.getElementById("shortAnswer").reset();
-		}
-	}
 
 	</script>
 </head>
@@ -80,7 +99,7 @@
 
 			<div id="multipleChoice">
 				<form name="multipleChoice" id="multipleChoice2" style="display: block;" method="post" action="formHandler.php">
-					Enter a Multiple Choice Question:
+					Enter a multipleChoice Choice Question:
 					<table cellspacing="10">
 						<tbody><tr>
 							<td><label>Question:</label></td>
