@@ -5,7 +5,10 @@
 
 	<script type="text/javascript">
 
+		// Keep track of the current active form selected.
 		var activeForm = "mc";
+
+		// Show form based on which type of question is picked.
 		function showForm(form) {
 			if(form == "mc")
 			{
@@ -24,11 +27,10 @@
 				document.getElementById("trueFalse").style.display = "none";
 				document.getElementById("shortAnswer").style.display = "block";
 			}
-
 			activeForm = form;
-
 		}
 
+		// Check if any boxes are empty for the currently selected form.
 		function submitForm() {
 			if(activeForm == "mc") 
 			{
@@ -68,6 +70,7 @@
 			}
 		}
 
+		// When the reset button is pressed, clears all of the form entries.
 		function resetForm() {
 			if(activeForm == "mc")
 			{
@@ -82,15 +85,31 @@
 			}
 		}
 
+		// Change the background color based on which form is selected.
+		function changeBackground(form) {
+			if(form == "mc")
+			{
+				document.body.style.backgroundColor = "lightblue";
+			}
+			else if(form == "tf")
+			{
+				document.body.style.backgroundColor = "lightgreen";
+
+			}
+			else {
+				document.body.style.backgroundColor = "pink";
+			}
+		}
+
 	</script>
 </head>
 <body>
-	<h2> A project by Addison Dunn and Brandon Liu. <h2>
+	<h2> A project by Addison Dunn (awd5eg) and Brandon Liu (bl6aw). <h2>
 		<h1 id="header1"> Choose a Question Type </h1>
 		<p>Choose the type of question you'd like to create:
 			<br>
 			<br>
-			<select id="dropdown1" onchange="showForm(this.value);"> 
+			<select id="dropdown1" onchange="showForm(this.value); changeBackground(this.value);"> 
 				<option value="mc">Multiple Choice</option> 
 				<option value="tf">True/False</option> 
 				<option value="sa">Short Answer</option> 
