@@ -1,0 +1,8 @@
+*What's up?
+updog1
+updog2
+updog3
+updog4
+*Richmond is in Virginia.
+True
+False
